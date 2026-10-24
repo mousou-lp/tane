@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>妄想のタネ | 妄想LP</title>
+    <meta name="description" content="未来のことと自分の偏愛をかけあわせて、架空のサービスを考えるのを手伝います。" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <nav class="site-nav container" aria-label="妄想LP">
+      <a href="https://mousou-lp.github.io/">妄想LP</a>
+      <a href="https://mousou-lp.github.io/mirai/">未来のこと</a>
+      <a href="./" aria-current="page">妄想のタネ</a>
+    </nav>
+
+    <main class="container">
+      <header class="page-header">
+        <h1 class="page-title">妄想のタネ</h1>
+        <p class="page-lead">未来を1つ選んで、自分の偏愛を書くと、架空のサービスを考えるための問いが出てきます。</p>
+        <p class="page-note">入れたものは、この端末の中だけに残ります。どこにも送られません。</p>
+      </header>
+
+      <section class="step" aria-labelledby="step1-title">
+        <h2 class="step__title" id="step1-title"><span class="step__num" aria-hidden="true">1</span>未来を選ぶ</h2>
+        <p class="step__lead">気になる未来を1つ選びます。迷ったら、まかせてもかまいません。</p>
+        <p class="step__tools">
+          <button class="link-button" type="button" data-random>ランダムに選ぶ</button>
+        </p>
+        <div class="choices" role="radiogroup" aria-labelledby="step1-title" data-futures>
+          <p class="empty" data-futures-status>未来のことを読みこんでいます。</p>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="step2-title">
+        <h2 class="step__title" id="step2-title"><span class="step__num" aria-hidden="true">2</span>偏愛を書く</h2>
+        <p class="step__lead">人に説明しなくても、つい時間を使ってしまうものを1つ書きます。</p>
+        <label class="field">
+          <span class="field__label">自分の偏愛</span>
+          <input class="field__input" type="text" maxlength="40" autocomplete="off" placeholder="例：古い喫茶店のナポリタン" data-love />
+        </label>
+        <p class="hints" aria-label="例">
+          <button class="chip" type="button" data-hint>古い喫茶店のナポリタン</button>
+          <button class="chip" type="button" data-hint>深夜のラジオ</button>
+          <button class="chip" type="button" data-hint>猫の寝相</button>
+          <button class="chip" type="button" data-hint>文房具の書き味</button>
+        </p>
+      </section>
+
+      <section class="step" aria-labelledby="step3-title" aria-live="polite">
+        <h2 class="step__title" id="step3-title"><span class="step__num" aria-hidden="true">3</span>かけあわせて妄想する</h2>
+        <p class="empty" data-result-empty>1と2を入れると、ここに妄想のタネが出てきます。</p>
+
+        <div data-result hidden>
+          <p class="pair"><span data-pair-future></span><span><span class="pair__x" aria-hidden="true">×</span><span data-pair-love></span></span></p>
+
+          <h3 class="sub-title">考えるための問い</h3>
+          <ul class="questions" data-questions></ul>
+          <p class="step__tools">
+            <button class="link-button" type="button" data-shuffle>ほかの問いを出す</button>
+          </p>
+
+          <h3 class="sub-title">AIといっしょに考える</h3>
+          <p class="step__lead">下の文をコピーして、ふだん使っているAI（ChatGPTやClaudeなど）に貼ると、サービスの案を出してくれます。</p>
+          <textarea class="prompt" rows="12" readonly data-prompt aria-label="AIに貼る文"></textarea>
+          <p class="step__tools">
+            <button class="secondary-button" type="button" data-copy>文をコピーする</button>
+            <span class="copied" data-copied hidden>コピーしました</span>
+          </p>
+
+          <h3 class="sub-title">思いついたサービスを残す</h3>
+          <label class="field">
+            <span class="field__label">どんなサービスか</span>
+            <textarea class="field__input" rows="3" maxlength="200" placeholder="例：その日の気分に合わせて、近くの喫茶店のナポリタンを1皿えらんでくれるサービス" data-idea></textarea>
+          </label>
+          <p class="step__lead">LPのリクエストに書いておくと、自分やだれかがLPにできます。GitHubの用紙が、ここに書いた中身の入った状態で開きます。</p>
+          <p class="step__tools">
+            <a class="button" href="#" data-request>LPのリクエストを書く<svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg></a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <a href="https://github.com/mousou-lp/tane">問いを足すには</a>
+        <a href="https://mousou-lp.github.io/">妄想LPのポータル</a>
+      </div>
+    </footer>
+  </body>
+</html>
