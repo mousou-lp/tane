@@ -2,6 +2,7 @@
 // 入れたものは localStorage にだけ残す。外には何も送らない
 const FUTURES_URL = "https://mousou-lp.github.io/mirai/futures.json";
 const REQUEST_URL = "https://github.com/mousou-lp/mousou-lp.github.io/issues/new";
+const SEED_URL = "https://github.com/mousou-lp/mousou-lp.github.io/discussions/new";
 const STORE = "mousou-tane";
 const MOTTO =
   "未来の技術と自分の偏愛から、架空のサービスを妄想する。その未来を考えることで、いまの自分の生き方に干渉して、ポジティブな変化を起こす。";
@@ -112,6 +113,21 @@ function render() {
 
   $("[data-prompt]").value = promptFor(future, love);
   $("[data-request]").href = requestUrl(future, love);
+  $("[data-seed]").href = seedUrl(future, love);
+}
+
+// アイデアの種（Discussions の Ideas）の用紙も、URLに欄のidを付けると中身が入って開く
+function seedUrl(f, love) {
+  const idea = (state.idea ?? "").trim();
+  const params = new URLSearchParams({
+    category: "ideas",
+    title: `アイデアの種: ${idea ? idea.slice(0, 30) : `${love}×${f.title}`}`,
+    idea: idea || `「${f.title}」未来と、「${love}」をかけあわせたら`,
+    era: f.era ?? "わからない",
+    future: f.title,
+    love,
+  });
+  return `${SEED_URL}?${params}`;
 }
 
 function promptFor(f, love) {
