@@ -140,6 +140,7 @@ function requestUrl(f, love) {
     template: "lp-request.yml",
     title: `LPのリクエスト: ${idea ? idea.slice(0, 30) : `${love}×${f.title}`}`,
     idea: idea || `「${f.title}」未来と、「${love}」をかけあわせたサービス`,
+    era: f.era ?? "わからない",
     more: `妄想のタネから。未来：${f.title}（https://mousou-lp.github.io/mirai/${f.slug}/）、偏愛：${love}`,
   });
   return `${REQUEST_URL}?${params}`;
